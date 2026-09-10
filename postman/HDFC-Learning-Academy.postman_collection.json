@@ -1,0 +1,49 @@
+{
+  "info": {
+    "name": "HDFC Learning Academy",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "Create Course",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"courseName\": \"Java\",\n  \"trainerName\": \"Anita\",\n  \"durationInDays\": 5,\n  \"maxCapacity\": 3,\n  \"fees\": 1000\n}" },
+        "url": "{{baseUrl}}/courses"
+      }
+    },
+    {
+      "name": "List Courses",
+      "request": { "method": "GET", "url": "{{baseUrl}}/courses" }
+    },
+    {
+      "name": "Enroll Employee",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"employeeId\": 101,\n  \"employeeName\": \"Ratan\",\n  \"courseId\": 1\n}" },
+        "url": "{{baseUrl}}/enrollments"
+      }
+    },
+    {
+      "name": "List Enrollments",
+      "request": { "method": "GET", "url": "{{baseUrl}}/enrollments" }
+    },
+    {
+      "name": "Most Popular Course",
+      "request": { "method": "GET", "url": "{{baseUrl}}/analytics/most-popular-course" }
+    },
+    {
+      "name": "Course Count",
+      "request": { "method": "GET", "url": "{{baseUrl}}/analytics/course-count" }
+    },
+    {
+      "name": "Enrollment Count",
+      "request": { "method": "GET", "url": "{{baseUrl}}/analytics/enrollment-count" }
+    }
+  ]
+}
